@@ -43,14 +43,18 @@ class HttpHeader {
     public static function checkMimeType($mime, $type) {
         switch ($type) {
             case self::TYPE_CONTENT_FILE:
-                return true;
+                $result = true;
+                break;
             case self::TYPE_CONTENT_IMG:
-                return preg_match('%image/(gif|p?jpeg|png|svg\+xml|tiff|vnd\.microsoft\.icon|vnd\.wap\.wbmp)%i', $mime);
+                $result = preg_match('%image/(gif|p?jpeg|png|svg\+xml|tiff|vnd\.microsoft\.icon|vnd\.wap\.wbmp)%i', $mime);
+                break;
             case self::TYPE_CONTENT_HTML:
-                return (preg_match('%text/html%i', $mime));
+                $result = preg_match('%text/html%i', $mime);
+                break;
             default:
-                return true;
+                $result = true;
         }
+        return (bool)$result;
     }
 
     public static function isRedirect($code){
