@@ -1,5 +1,5 @@
 {
-  "name": "bpteam/header-http",
+  "name": "bpteam/php-header-http",
   "description": "tiny and slow ;) php classes for work with HTTP headers",
   "minimum-stability": "dev",
   "authors": [
